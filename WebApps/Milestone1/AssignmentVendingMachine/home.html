@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Vending Machine</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/vendingStyles.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1 style="text-align: center">Vending Machine</h1>
+  <hr/>
+  <div class="row" style="border:1px solid black">
+    <!-- slots -->
+    <div class="col-sm-8" style="border:1px solid black">
+      <table class="col-md-12" style="text-align: center">
+        <tr>
+    <!-- set widths of columns -->      
+          <th class="col-md-4"></th>
+          <th class="col-md-4"></th>
+          <th class="col-md-4"></th>
+        </tr>
+        <tr>
+          <td>
+    <!-- slots are clickable to fill item selection -->         
+            <a onclick="selectItem(1)">
+              <div class="slot">
+    <!-- hard code the slot #s -->             
+                <div style="text-align: left">1</div>          
+                <div id="slot1">
+    <!-- other info will be filled inside this div -->                
+                </div>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a onclick="selectItem(2)">
+              <div class="slot">
+                <div style="text-align: left">2</div>
+                <div id="slot2">
+                </div>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a onclick="selectItem(3)">
+              <div class="slot">
+                <div style="text-align: left">3</div>
+                <div id="slot3">
+                </div>
+              </div>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a onclick="selectItem(4)">
+              <div class="slot">
+                <div style="text-align: left">4</div>
+                <div id="slot4">
+                </div>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a onclick="selectItem(5)">
+              <div class="slot">
+                <div style="text-align: left">5</div>
+                <div id="slot5">
+                </div>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a onclick="selectItem(6)">
+              <div class="slot">
+                <div style="text-align: left">6</div>
+                <div id="slot6">
+                </div>
+              </div>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a onclick="selectItem(7)">
+              <div class="slot">
+                <div style="text-align: left">7</div>
+                <div id="slot7">
+                </div>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a onclick="selectItem(8)">
+              <div class="slot">
+                <div style="text-align: left">8</div>
+                <div id="slot8">
+                </div>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a onclick="selectItem(9)">
+              <div class="slot">
+                <div style="text-align: left">9</div>
+                <div id="slot9">
+                </div>
+              </div>
+            </a>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+    <!-- forms -->
+    <div class="col-sm-4" style="border:1px solid black">
+      <div id="addMoney" class="row">
+        <h4>Total $ In:</h4>
+
+        <div class="col-md-12">
+          <div class="col-md-3"></div>
+    <!-- blank space of 3 around moneyInserted, which takes up 6 ... try col-md-offset ??? -->       
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="moneyInserted" placeholder="$0.00" readonly="true" />
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="col-md-2"></div>
+          <div class="col-md-4" style="text-align: center">
+            <button type="button" id="dollar-button" class="btn btn-default">
+            Add Dollar
+            </button>
+          </div>
+          <div class="col-md-4" style="text-align: center">
+            <button type="button" id="quarter-button" class="btn btn-default">
+            Add Quarter
+            </button>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="col-md-2"></div>
+          <div class="col-md-4" style="text-align: center">
+            <button type="button" id="dime-button" class="btn btn-default">
+              Add Dime
+              </button>
+          </div>
+          <div class="col-md-4" style="text-align: center">
+            <button type="button" id="nickel-button" class="btn btn-default">
+              Add Nickel
+              </button>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+
+      </div>
+
+      <hr/>
+
+      <div id="makePurchase">
+        <h4>Messages:</h4>
+
+        <div class="row">
+          <input type="text" class="form-control" id="messagesField" placeholder="" readonly="true" />
+        </div>
+
+        <div class="row" style="text-align: right">
+          <label for="item-selection" class="col-md-4 control-label">
+                Item:
+            </label>
+
+          <div class="col-md-8">
+            <input type="text" class="form-control" id="item-selection" placeholder="nothing selected" />
+          </div>
+        </div>
+
+        <div class="row" style="text-align: center">
+          <button type="button" id="make-purchase-button" class="btn btn-default">
+              Make Purchase
+              </button>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div id="makeChange">
+        <h4>Change:</h4>
+
+        <div class="row">
+          <a onclick="takeChange()">
+          <input type="text" class="form-control" id="changeField" placeholder="" readonly="true" />
+          </a>
+        </div>
+
+        <div class="row" style="text-align: center">
+          <button type="button" id="change-return-button" class="btn btn-default">
+            Change Return
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <script src="js/jquery-2.2.4.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/home.js"></script>
+</body>
+
+</html>

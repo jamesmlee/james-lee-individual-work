@@ -1,0 +1,61 @@
+Create new NetBeans project
+-File --> New Project --> Maven --> Project from Archetype
+-search and select sg-spring-mvc-archetype
+
+Create file shells
+-create result.jsp in jsp folder
+-create FactorizorController.java in package with HelloController.java
+
+Create code to let us submit data from index.jsp to the servlet, 
+and have the servlet forward that data to result.jsp for display
+
+index.jsp
+-change Title, h1, h2
+-create form to take inputs
+            <form method="POST" action="factorNumber">
+                <input type="text" name="numberToFactor"/>
+                <input type="submit" value="Find Factors!!!"/>
+            </form>
+-Notice the value of the action attribute for our form is factorNumber, the 
+URL pattern we'll associate with the controller method that will handle this request.
+
+FactorizorController.java
+-add @Controller annotation and import it
+-write a method that can handle requests, returns a string that's the logical view name
+-params: HttpServletRequest to see what was set on the form, model
+-annotate it to tell Spring that this is the code that should be used to service a request
+-put the value in the model
+
+    @RequestMapping(value="/factorNumber", 
+                    method=RequestMethod.POST)
+    public String factorNumber(HttpServletRequest request, 
+                               Map<String, Object> model) {
+        String numberToFactor = 
+                request.getParameter("numberToFactor");
+        model.put("numberToFactor", numberToFactor);
+        return "result";
+    }
+
+result.jsp
+-change title, h1
+        <p>
+            You asked to factor ${numberToFactor}
+        </p>
+        <a href="index.jsp">Factor another one</a>
+
+
+Implement the Algorithm
+=======================
+-do what's needed, then ...
+-set results in the model so they are available to result.jsp
+        model.put("numberToFactor", numberToFactor);
+        model.put("factors", factorList);
+        model.put("isPrime", isPrime);
+        model.put("isPerfect", isPerfect);
+
+
+Display Results
+===============
+-add taglib directive to top of result.jsp; do NOT need to go to POM
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+

@@ -1,0 +1,19 @@
+Hey guys, forgot yesterday to put this on Slack. This was the way that I was able to select dynamically 
+generated html elements and add event handlers to them.
+
+
+
+
+$(document).on('click', '.vendingmachine-item', function() {
+   
+	var id = this.dataset.id;
+ 
+	setSelection(id);
+ });
+
+
+
+"on" provides a way to do this. An ancestor element to the dynamic elements is chosen (document), 
+and then to "on" you pass the parameters event type (click), a selection for the elements that need 
+handlers (here, my own class "vendingmachine-item"), and finally the function you're writing 
+(in this case, I just "save" the chosen item number and give it to another function that displays it)

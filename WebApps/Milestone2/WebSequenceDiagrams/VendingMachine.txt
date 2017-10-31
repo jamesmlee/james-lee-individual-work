@@ -1,0 +1,16 @@
+title Vending Machine
+
+Controller->View: Get user's money
+note right of View: User enters money
+View->Controller: Return user's money
+Controller->Service: Store user's money
+Service->DAO: Store user's money
+note right of DAO: Store user's money
+
+Controller->View: Get item from user
+note right of View: User makes a selection
+View->Controller: Retun user's selection
+Controller->Service: Purchase the item, passing user selection
+Service->DAO: Purchase the item
+note right of DAO: Update inventory and money
+DAO->Service: Successfully updated

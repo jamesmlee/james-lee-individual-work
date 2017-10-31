@@ -1,0 +1,18 @@
+2017-09-15T15:01:45.274 : ERROR. VendingMachineNoItemInventoryException was thrown. Attempted to purchase: 
+2017-09-15T15:03:33.278 : ERROR. VendingMachineInsufficientFundsException was thrown. Attempted to purchase: 
+2017-09-15T17:09:47.400 : purchaseItem: 4
+2017-09-15T17:10:02.602 : purchaseItem: 1
+2017-09-15T17:43:27.778 : purchaseItem: 4
+2017-09-15T17:43:46.653 : purchaseItem: 3
+2017-09-15T18:31:26.202 : purchaseItem: 4
+2017-09-15T18:33:53.494 : purchaseItem: 3
+2017-09-15T18:34:29.953 : purchaseItem: 5
+2017-09-15T18:46:09.335 : purchaseItem: 4 |EXCEPTION: VendingMachineNoItemInventoryException: ERROR. Item is out of stock
+2017-09-15T18:46:16.642 : purchaseItem: 3 |EXCEPTION: VendingMachineInsufficientFundsException: ERROR. Insufficient funds. Please enter $1.25 to purchase item
+2017-09-15T19:30:53.194 : purchaseItem: 6 |EXCEPTION: VendingMachineInsufficientFundsException: ERROR. Insufficient funds. Please enter $0.68 to purchase item
+2017-09-15T19:46:54.039 : purchaseItem: 5 |EXCEPTION: VendingMachineInsufficientFundsException: ERROR. Insufficient funds. Please enter $0.51 to purchase item
+2017-09-15T20:28:39.418 : purchaseItem: 4 |EXCEPTION: VendingMachineNoItemInventoryException: ERROR. Reese's is out of stock
+2017-09-15T20:28:50.965 : purchaseItem: 2 |EXCEPTION: VendingMachineInsufficientFundsException: ERROR. Insufficient funds. Please enter $0.77 to purchase Popcorn
+2017-09-15T22:51:48.669 : purchaseItem: 4 |EXCEPTION: VendingMachineNoItemInventoryException: ERROR. Reese's is out of stock
+2017-09-15T22:51:59.510 : purchaseItem: 2 |EXCEPTION: VendingMachineInsufficientFundsException: ERROR. Insufficient funds. Please enter $0.77 to purchase Popcorn
+2017-09-15T22:52:32.038 : purchaseItem: 6 |EXCEPTION: VendingMachineInsufficientFundsException: ERROR. Insufficient funds. Please enter $0.68 to purchase Chips

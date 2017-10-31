@@ -1,0 +1,4 @@
+2017-09-05T22:47:45.352 : Student 3 CREATED
+2017-09-15T09:27:33.763 : createStudent: ID: 1 |Name: Bob Smith |Cohort: Java
+2017-09-15T09:50:14.515 : createStudent: ID: 2 |Name: Sally Jones |Cohort: Java
+2017-09-15T09:50:18.025 : removeStudent: 2

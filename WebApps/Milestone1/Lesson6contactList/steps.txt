@@ -1,0 +1,87 @@
+1. Create the UI Layout
+    A. get the basic shell of your HTML (script tags, links, head, body, etc.)
+    B. create table for My Contacts (Contact Name, Company, etc.)
+    C. create form for add contact (first name, last name, company, etc.)
+    D. create form for edit contact (first name, last name, company, etc.)
+        1. do not display edit form 
+2. Get all contacts and display them to the user
+    A. create .js file that will interact with HTML file
+    B. create loadContacts() function and call it inside $(document).ready()
+        1. success: creates rows in the body of our contentTable and fills
+        them with the appropriate contact information
+        2. error: appends an <li> element to our errorMessages <ul> and
+        attaches attributes (in this case classes) and text that indicate
+        there was an error when loading the contacts to the <li> element
+3. Create new contact
+    A. create a click handler for your add-button inside $(document).ready()
+        1. create ajax call
+            a. type: 'POST'
+            b. url: local host stuff + '/contact'
+            c. stringify vals in add-form
+            d. add headers and dataType
+            e. success: empty error messages and clear add-form
+            f. error: appends an <li> element to our errorMessages <ul>
+            and attaches attributes (in this case classes) and text that
+            indicate there was an error when loading the contacts to the
+            <li> element
+    B. create clearContactTable() method that is invoked inside loadContacts();
+    prevents every contact currently in the table from being appended again when
+    the add-button is pressed
+        1. empties contentRows inside contactTable
+4. Update existing contact
+    A. create showEditForm()
+        1. empty errorMessages <ul>
+        2. hide contactTableDiv
+        3. show editFormDiv
+        4. add onclick attr to Edit anchor in success key of
+        loadContacts()
+    B. create hideEditForm()
+        1. empty errorMessages <ul>
+        2. clear vals for contact info
+        3. hide editFormDiv
+        4. show contactTableDiv
+    C. modify showEditForm() to show info of contact we chose to edit
+        1. change showEditForm() to take in contactId
+            a. create id var in success key in ajax call in
+            loadContacts()
+            b. edit row in success key to pass in newly created var
+        2. create ajax call to get info of contact we chose to edit
+            a. takes in data and can take in status
+    D. create click handler for edit-button inside $(document).ready()
+        1. create ajax call
+            a. type: 'PUT'
+            b. url: local host stuff + '/contact/ +
+            $('#edit-contact-id').val()
+            c. stringify vals in edit-form
+            d. add headers and dataType
+            e. success: empty error messages, hideEditForm(), and
+            loadContacts()
+            f. error: appends an <li> element to our errorMessages <ul>
+            and attaches attributes (in this case classes) and text that
+            indicate there was an error when loading the contacts to the
+            <li> element
+5. Delete existing contact
+    A. create deleteContact() method
+        1. takes in contactId
+        2. create ajax call
+            a. type: 'DELETE'
+            b. url: local host stuff + '/contact' + contactId
+            c. success: can take in status parameter; only invokes
+            loadContacts()
+    B. make the appropriate changes in the success key in the loadContacts()
+    method
+6. Check input validity
+    A. create checkAndDisplayValidationErrors
+        1. takes in input
+        2. empties errorMessages
+        3. create errorMessages array
+        4. iterate through each input and determine if there is an error.
+        If so, add the errorField and the validation message to the
+        errorMessages array
+        5. if there are errorMessages, iterate through each and append
+        it to our errorMessages <ul>
+    B. validate inputs before calling ajax with our add and edit-button click
+    handlers
+        1. invoke our checkAndDisplayValidationErrors method before our
+        ajax calls and bail (return false) if our validation method returns
+        false

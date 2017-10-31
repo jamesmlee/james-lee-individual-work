@@ -1,0 +1,32 @@
+title Spring MVC
+
+Browser->Internet: I want to view ContactList MVC
+note over Browser
+    Sending a REQUEST
+    - URL
+    - Method
+    - Content-Type (header,optional)
+    - Content (optional)
+end note
+Internet->Dispatcher: Here's a URL and a method
+note over Dispatcher 
+    What @Controller do I know about? 
+    What @RequestMapping do they have?
+end note
+note right of Dispatcher: Assuming we have a matching endpoint
+Dispatcher->Controller: Run the method with matching @RequestMapping
+Controller->ServiceLayer: Do service-y things
+ServiceLayer->DAO: Give me some data
+DAO->ServiceLayer: Here's your data
+ServiceLayer->Controller: I did things, here's stuff
+Controller->Dispatcher: Might have a Model, here's a view name
+Dispatcher->ViewResolver: Here's a view name, got a view?
+ViewResolver->Dispatcher: Here's the view!
+Dispatcher->Internet: Done
+note over Internet
+    Sending a RESPONSE:
+    - HTTP Status
+    - Content-Type
+    - Content
+end note
+Internet->Browser: Here's what you asked for

@@ -1,0 +1,33 @@
+        // Document Ready Event
+// using anonymous function
+$(document).ready(function () {
+    alert("Ready to go!!!");
+});
+// using a named function
+function handleReady() {
+    alert("Ready to go!");
+}
+// Run a named function when the document is ready.
+$(document).ready(handleReady);
+
+
+        // Selecting Elements
+// use tag name of element to select all HTML elements of a particular TYPE
+$("<elementType>")
+// e.g., below selects all H1 elements on the page
+$("H1")
+
+// use "." plus name of class to select all HTML elements with a particular CLASS VALUE
+$(".<className>")
+// e.g., below selects all HTML elements on page with class="pageHeading"
+$(".pageHeading")
+
+// use "#" plus name of id attribute to select all HTML element with a particular ID
+$("<id>")
+// e.g., below select the HTML element with id="addButton"
+$("#addButton")
+
+        // Showing and Hiding Elements
+$("H1").hide();
+$("H1").show();
+$("H1").toggle();
